@@ -1,0 +1,46 @@
+﻿using Project.Core.Models;
+using Project.Core.Repositories;
+using Project.Core.Services;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Project.Service
+{
+    public class OrderService : IOrderServices
+    {
+        private readonly IOrderRepository _OrderRepository;
+
+        public OrderService(IOrderRepository userRepository)
+        {
+            _OrderRepository = userRepository;
+        }
+
+        public List<Order> GetAll(string? text = "")
+        {
+            //לוגיקה עסקית
+            return _OrderRepository.GetList().Where(u => u.Name.Contains(text)).ToList();
+
+        }
+        public Order Get(int id)
+        {
+               return   _OrderRepository.GetList().Find(o => o.IdOrder == id);
+        }
+        public void Delete(int id)
+        {
+            _OrderRepository.GetList().Remove(_OrderRepository.GetList().Find(o => o.IdOrder == id));
+        }
+        public void Put(int id, Order ordr) {
+            _OrderRepository.GetList().Find(o => o.IdOrder == id).IdOrder = ordr.IdOrder;
+            _OrderRepository.GetList().Find(o => o.IdOrder == id).Product = ordr.Product;
+            _OrderRepository.GetList().Find(o => o.IdOrder == id).CountProdact = ordr.CountProdact;
+            _OrderRepository.GetList().Find(o => o.IdOrder == id).DateOrder = ordr.DateOrder;
+        }
+        public void Post(Order ordr)
+        {
+            _OrderRepository.GetList().Add(ordr);
+        }
+    }
+}
