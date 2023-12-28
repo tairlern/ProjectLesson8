@@ -12,7 +12,7 @@ namespace Project.Core.Repositories
         List<Order> GetList();
         Order Get(int id);
         void Delete(int id);
-        void Put(int id, Order cust);
-        void Post(Order cust);
+        Order Put(int id, Order cust);
+        Order Post(Order cust);
     }
 }

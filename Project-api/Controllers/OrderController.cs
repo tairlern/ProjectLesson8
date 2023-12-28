@@ -48,9 +48,10 @@ namespace Project_api.Controllers
 
         // DELETE api/<OrderController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult Delete(int id)
         {
             _orders.Delete(id);
+            return NoContent();
         }
     }
 }

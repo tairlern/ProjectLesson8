@@ -23,22 +23,26 @@ namespace Project.Data
         }
         public Order Get(int id)
         {
-            return _context.OrderList.ToList().Find(o => o.Id == id);
+            return _context.OrderList.Find( id);
         }
         public void Delete(int id)
         {
-            _context.OrderList.ToList().Remove(_context.OrderList.ToList().Find(o => o.Id == id));
+            var o=Get(id);
+            _context.OrderList.Remove(o);
         }
-        public void Put(int id, Order ordr)
+        public Order Put(int id, Order ordr)
         {
-            _context.OrderList.ToList().Find(o => o.Id == id).Id = ordr.Id;
-            _context.OrderList.ToList().Find(o => o.Id == id).Product = ordr.Product;
-            _context.OrderList.ToList().Find(o => o.Id == id).CountProdact = ordr.CountProdact;
-            _context.OrderList.ToList().Find(o => o.Id == id).DateOrder = ordr.DateOrder;
+            var o=Get(id);
+            o.Id = ordr.Id;
+           o.Product= ordr.Product;
+            o.CountProdact = ordr.CountProdact;
+           o.DateOrder = ordr.DateOrder;
+            return ordr;
         }
-        public void Post(Order ordr)
+        public Order Post(Order ordr)
         {
-            _context.OrderList.ToList().Add(ordr);
+            _context.OrderList.Add(ordr);
+            return ordr;
         }
     }
 }

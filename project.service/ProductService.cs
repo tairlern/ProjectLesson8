@@ -31,11 +31,11 @@ namespace Project.Service
         public  void Delete(int id) {
             _ProductRepository.Delete(id);
         }
-        public  void Put(int id, Product prod) {
-            _ProductRepository.Put(id, prod);
+        public  Product Put(int id, Product prod) {
+           return _ProductRepository.Put(id, prod);
         }
-        public  void Post(Product prod) {
-            _ProductRepository.Post(prod); 
+        public  Product Post(Product prod) {
+            return _ProductRepository.Post(prod); 
         }
     }
 }

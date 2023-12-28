@@ -12,7 +12,7 @@ namespace Project.Core.Services
         List<Product> GetAll(string? text = "");
         Product Get(int id);
         void Delete(int id);
-        void Put(int id, Product cust);
-        void Post(Product cust);
+        Product Put(int id, Product cust);
+        Product Post(Product cust);
     }
 }

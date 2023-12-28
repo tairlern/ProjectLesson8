@@ -28,16 +28,20 @@ namespace Project.Data
         }
         public void Delete(int id)
         {
-            _context.ProductList.ToList().Remove(_context.ProductList.ToList().Find(p => p.Id == id));
+            var o = Get(id);
+            _context.ProductList.Remove(o);
         }
-        public void Put(int id, Product prod)
+        public Product Put(int id, Product prod)
         {
-            _context.ProductList.ToList().Find(p => p.Id == id).Id = prod.Id;
-            _context.ProductList.ToList().Find(p => p.Id == id).Name = prod.Name;
+        var o=Get(id);
+           o.Id = prod.Id;
+           o.Name = prod.Name;
+            return prod;
         }
-        public void Post(Product prod)
+        public Product Post(Product prod)
         {
-            _context.ProductList.ToList().Add(prod);
+            _context.ProductList.Add(prod);
+            return prod;
         }
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5J8U5rDeR2oge2zxvVmO1TX64ZZbBiwISlrmyPt6Egh2nDFAUTNe0mbIabxYaI+hIJnBQ2EHgkUQ9Z1ISRWcXw==",
+  "dgSpecHash": "FPLaNpf4oCbkG/cTKDyv7onnGygbjzvbv0b5iBsCmIl1juetw+2sYL/r/DK4NBFit8b5UXANqVt4WlopgGXZNA==",
   "success": true,
-  "projectFilePath": "Y:\\Groups\\Group_3\\ניזרי  תאיר יהודית\\.NET core\\lesson9-Edentites\\Project\\Project.Data\\Project.Data.csproj",
+  "projectFilePath": "Y:\\Groups\\Group_3\\ניזרי  תאיר יהודית\\.NET core\\lesson10-EdentitesB\\Project\\Project.Data\\Project.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hitmachut\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\hitmachut\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

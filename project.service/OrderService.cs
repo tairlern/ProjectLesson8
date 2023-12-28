@@ -32,12 +32,12 @@ namespace Project.Service
         {
                 _OrderRepository.Delete(id);
         }
-        public void Put(int id, Order ordr) {
-            _OrderRepository.Put(id, ordr);
+        public Order Put(int id, Order ordr) {
+           return _OrderRepository.Put(id, ordr);
         }
-        public void Post(Order ordr)
+        public Order Post(Order ordr)
         {
-            _OrderRepository.Post(ordr);
+            return _OrderRepository.Post(ordr);
         }
     }
 }

@@ -23,22 +23,29 @@ namespace Project.Data
         }
          public Customer Get(int id)
         {
-            return _context.CustomerList.ToList().Find(c => c.Id == id);
+            return _context.CustomerList.Find(id);
         }
         public void Delete(int id)
         {
-
-            _context.CustomerList.ToList().Remove(_context.CustomerList.ToList().Find(c => c.Id == id));
+            var c=Get(id);
+            _context.CustomerList.Remove(c);
+            _context.SaveChanges();
         }
 
-        public void Put(int id, Customer cust)
+        public Customer Put(int id, Customer cust)
         {
-            _context.CustomerList.ToList().Find(c => c.Id == id).Id = cust.Id;
-            _context.CustomerList.ToList().Find(c => c.Id == id).Name = cust.Name;
+            var c = Get(id);
+           c.Id = cust.Id;
+            c .Name = cust.Name;
+            _context.SaveChanges();
+            return c;
         }
-        public void Post(Customer cust)
+        public Customer Post(Customer cust)
         {
-            _context.CustomerList.ToList().Add(cust);
+            _context.CustomerList.Add(cust);
+            _context.SaveChanges();
+            return cust;
         }
+       
     }
 }

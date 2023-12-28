@@ -1,4 +1,5 @@
 using Project.Core.Repositories;
+using Project.Core.Services;
 using Project.Data;
 using Project.Service;
 
@@ -11,11 +12,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<OrderService, OrderService>();
+builder.Services.AddScoped<IOrderServices, OrderService>();
 builder.Services.AddScoped<IOrderRepository, OrderRiposetory>();
-builder.Services.AddScoped<CustomerService, CustomerService>();
+builder.Services.AddScoped<ICustomerServices, CustomerService>();
 builder.Services.AddScoped<ICustomerRepository, CustomerReposetory>();
-builder.Services.AddScoped<ProductService, ProductService>();
+builder.Services.AddScoped<IProductServices, ProductService>();
 builder.Services.AddScoped<IProductRepository, ProductReposetory>();
 builder.Services.AddDbContext<DataContext>();
 

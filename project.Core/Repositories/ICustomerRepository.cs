@@ -12,7 +12,7 @@ namespace Project.Core.Repositories
         List<Customer> GetList();
         Customer Get(int id);
         void Delete(int id);
-        void Put(int id, Customer cust);
-        void Post(Customer cust);
+        Customer Put(int id, Customer cust);
+        Customer Post(Customer cust);
     }
 }

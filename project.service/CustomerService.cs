@@ -33,13 +33,15 @@ namespace Project.Service
            
         }
 
-        public void Put(int id, Customer cust)
+        public Customer Put(int id, Customer cust)
         {
-            _CustomerRepository.Put(id, cust);
+           return _CustomerRepository.Put(id, cust);
+            
         }
-        public void Post(Customer cust)
+        public Customer Post(Customer cust)
         {
-            _CustomerRepository.Post(cust);
+           return _CustomerRepository.Post(cust);
+           
         }
 
     }

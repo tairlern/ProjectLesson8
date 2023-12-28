@@ -50,9 +50,10 @@ namespace Project_api.Controllers
 
         // DELETE api/<CustomerController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult Delete(int id)
         {
             _customers.Delete( id);
+            return NoContent();
         }
     }
 }
