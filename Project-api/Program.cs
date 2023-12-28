@@ -17,7 +17,7 @@ builder.Services.AddScoped<CustomerService, CustomerService>();
 builder.Services.AddScoped<ICustomerRepository, CustomerReposetory>();
 builder.Services.AddScoped<ProductService, ProductService>();
 builder.Services.AddScoped<IProductRepository, ProductReposetory>();
-builder.Services.AddSingleton<DataContext>();
+builder.Services.AddDbContext<DataContext>();
 
 var app = builder.Build();
 

@@ -10,5 +10,9 @@ namespace Project.Core.Repositories
     public interface IOrderRepository
     {
         List<Order> GetList();
+        Order Get(int id);
+        void Delete(int id);
+        void Put(int id, Order cust);
+        void Post(Order cust);
     }
 }

@@ -20,27 +20,24 @@ namespace Project.Service
 
         public List<Order> GetAll(string? text = "")
         {
-            //לוגיקה עסקית
+            
             return _OrderRepository.GetList().Where(u => u.Name.Contains(text)).ToList();
 
         }
         public Order Get(int id)
         {
-               return   _OrderRepository.GetList().Find(o => o.IdOrder == id);
+            return _OrderRepository.Get(id);
         }
         public void Delete(int id)
         {
-            _OrderRepository.GetList().Remove(_OrderRepository.GetList().Find(o => o.IdOrder == id));
+                _OrderRepository.Delete(id);
         }
         public void Put(int id, Order ordr) {
-            _OrderRepository.GetList().Find(o => o.IdOrder == id).IdOrder = ordr.IdOrder;
-            _OrderRepository.GetList().Find(o => o.IdOrder == id).Product = ordr.Product;
-            _OrderRepository.GetList().Find(o => o.IdOrder == id).CountProdact = ordr.CountProdact;
-            _OrderRepository.GetList().Find(o => o.IdOrder == id).DateOrder = ordr.DateOrder;
+            _OrderRepository.Put(id, ordr);
         }
         public void Post(Order ordr)
         {
-            _OrderRepository.GetList().Add(ordr);
+            _OrderRepository.Post(ordr);
         }
     }
 }

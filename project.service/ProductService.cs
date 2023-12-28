@@ -21,22 +21,21 @@ namespace Project.Service
 
         public List<Product> GetAll(string? text = "")
         {
-            //לוגיקה עסקית
+           
             return _ProductRepository.GetList().Where(u => u.Name.Contains(text)).ToList();
         }
         public  Product Get(int id) {
 
-           return _ProductRepository.GetList().Find(p => p.Id == id);
+           return _ProductRepository.Get(id);
         }
         public  void Delete(int id) {
-            _ProductRepository.GetList().Remove(_ProductRepository.GetList().Find(p => p.Id == id));
+            _ProductRepository.Delete(id);
         }
         public  void Put(int id, Product prod) {
-            _ProductRepository.GetList(). Find(p => p.Id == id).Id = prod.Id;
-            _ProductRepository.GetList().Find(p => p.Id == id).Name = prod.Name;
+            _ProductRepository.Put(id, prod);
         }
         public  void Post(Product prod) {
-            _ProductRepository.GetList().Add(prod);
+            _ProductRepository.Post(prod); 
         }
     }
 }

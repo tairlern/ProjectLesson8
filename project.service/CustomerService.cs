@@ -21,26 +21,25 @@ namespace Project.Service
         public List<Customer> GetAll(string? text = "")
         {
             //לוגיקה עסקית
-            return _CustomerRepository.GetList().Where(u => u.Name.Contains(text)).ToList();
+            return _CustomerRepository.GetList();
         }
         public Customer Get(int id)
         {
-            return _CustomerRepository?.GetList().Find(c => c.Id == id);
+            return _CustomerRepository.Get(id);
         }
         public void Delete(int id)
         {
-
-            _CustomerRepository?.GetList().Remove(_CustomerRepository.GetList()?.Find(c => c.Id == id));
+            _CustomerRepository.Delete(id);
+           
         }
 
         public void Put(int id, Customer cust)
         {
-            _CustomerRepository.GetList().Find(c => c.Id == id).Id = cust.Id;
-            _CustomerRepository.GetList().Find(c => c.Id == id).Name = cust.Name;
+            _CustomerRepository.Put(id, cust);
         }
         public void Post(Customer cust)
         {
-            _CustomerRepository?.GetList().Add(cust);
+            _CustomerRepository.Post(cust);
         }
 
     }

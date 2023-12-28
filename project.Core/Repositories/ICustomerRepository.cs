@@ -10,5 +10,9 @@ namespace Project.Core.Repositories
     public interface ICustomerRepository
     {
         List<Customer> GetList();
+        Customer Get(int id);
+        void Delete(int id);
+        void Put(int id, Customer cust);
+        void Post(Customer cust);
     }
 }

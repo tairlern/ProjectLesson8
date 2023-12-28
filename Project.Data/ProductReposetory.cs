@@ -19,7 +19,25 @@ namespace Project.Data
 
         public List<Product> GetList()
         {
-            return _context.ProductList;
+            return _context.ProductList.ToList();
+        }
+        public Product Get(int id)
+        {
+
+            return _context.ProductList.ToList().Find(p => p.Id == id);
+        }
+        public void Delete(int id)
+        {
+            _context.ProductList.ToList().Remove(_context.ProductList.ToList().Find(p => p.Id == id));
+        }
+        public void Put(int id, Product prod)
+        {
+            _context.ProductList.ToList().Find(p => p.Id == id).Id = prod.Id;
+            _context.ProductList.ToList().Find(p => p.Id == id).Name = prod.Name;
+        }
+        public void Post(Product prod)
+        {
+            _context.ProductList.ToList().Add(prod);
         }
     }
 }
