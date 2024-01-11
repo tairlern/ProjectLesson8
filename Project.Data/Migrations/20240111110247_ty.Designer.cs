@@ -12,14 +12,14 @@ using Project.Data;
 namespace Project.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231221144212_MigrationName")]
-    partial class MigrationName
+    [Migration("20240111110247_ty")]
+    partial class ty
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.25")
+                .HasAnnotation("ProductVersion", "6.0.26")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -59,12 +59,7 @@ namespace Project.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
 
                     b.ToTable("OrderList");
                 });
@@ -81,20 +76,30 @@ namespace Project.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
 
                     b.ToTable("ProductList");
                 });
 
-            modelBuilder.Entity("Project.Core.Models.Order", b =>
+            modelBuilder.Entity("Project.Core.Models.Product", b =>
                 {
-                    b.HasOne("Project.Core.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
+                    b.HasOne("Project.Core.Models.Order", "Order")
+                        .WithMany("Products")
+                        .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Product");
+                    b.Navigation("Order");
+                });
+
+            modelBuilder.Entity("Project.Core.Models.Order", b =>
+                {
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }

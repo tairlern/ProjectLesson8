@@ -12,7 +12,8 @@ namespace Project.Core.Models
         public string Name { get; set; }
       
         public int CountProdact { get; set; }
-        public Product Product { get; set; }
+        //public Product Product { get; set; }
         public DateTime DateOrder { get; set; }
+       public List<Product> Products { get; set; }
     }
 }

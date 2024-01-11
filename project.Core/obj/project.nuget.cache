@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "/AiN32UwsEM9lxkIuP/9wyupR72f1DR6JRpxrOlGD/ys5W4Ecs5zwiBRhAaVR3uuUg0FMG91SIXvZWPSJ3665A==",
+  "dgSpecHash": "+QqAYtoY+4AIAg24uxlw0tCogFCAIcj88Yv9yh2VheNeuG98melLVY6nUvp9yttqmJExzjNw+OZZxJRXToHHLA==",
   "success": true,
-  "projectFilePath": "Y:\\Groups\\Group_3\\ניזרי  תאיר יהודית\\.NET core\\lesson10-EdentitesB\\Project\\project.Core\\Project.Core.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "Y:\\Groups\\Group_3\\ניזרי  תאיר יהודית\\.NET core\\lesson12-EntitiesD\\Project\\project.Core\\Project.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hitmachut\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\hitmachut\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }

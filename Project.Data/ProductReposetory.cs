@@ -1,4 +1,5 @@
-﻿using Project.Core.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Project.Core.Models;
 using Project.Core.Repositories;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace Project.Data
 
         public List<Product> GetList()
         {
-            return _context.ProductList.ToList();
+            return _context.ProductList.Include(p=>p.Orders).ToList();
         }
         public Product Get(int id)
         {
@@ -30,6 +31,7 @@ namespace Project.Data
         {
             var o = Get(id);
             _context.ProductList.Remove(o);
+            //_context.SaveChanges();
         }
         public Product Put(int id, Product prod)
         {
@@ -41,6 +43,7 @@ namespace Project.Data
         public Product Post(Product prod)
         {
             _context.ProductList.Add(prod);
+            //_context.SaveChanges();
             return prod;
         }
     }

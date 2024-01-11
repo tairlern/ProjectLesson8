@@ -12,17 +12,32 @@ using Project.Data;
 namespace Project.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231221145900_Add_colam_Size")]
-    partial class Add_colam_Size
+    [Migration("20240111120933_tt")]
+    partial class tt
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.25")
+                .HasAnnotation("ProductVersion", "6.0.26")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("OrderProduct", b =>
+                {
+                    b.Property<int>("OrdersId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("OrdersId", "ProductsId");
+
+                    b.HasIndex("ProductsId");
+
+                    b.ToTable("OrderProduct");
+                });
 
             modelBuilder.Entity("Project.Core.Models.Customer", b =>
                 {
@@ -59,14 +74,35 @@ namespace Project.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProductId")
+                    b.HasKey("Id");
+
+                    b.ToTable("OrderList");
+                });
+
+            modelBuilder.Entity("Project.Core.Models.ProdactToOrder", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("count")
+                        .HasColumnType("int");
+
+                    b.Property<int>("orderIdId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("productIdId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("orderIdId");
 
-                    b.ToTable("OrderList");
+                    b.HasIndex("productIdId");
+
+                    b.ToTable("ProdactToOrderList");
                 });
 
             modelBuilder.Entity("Project.Core.Models.Product", b =>
@@ -81,20 +117,46 @@ namespace Project.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("ProductList");
                 });
 
-            modelBuilder.Entity("Project.Core.Models.Order", b =>
+            modelBuilder.Entity("OrderProduct", b =>
                 {
-                    b.HasOne("Project.Core.Models.Product", "Product")
+                    b.HasOne("Project.Core.Models.Order", null)
                         .WithMany()
-                        .HasForeignKey("ProductId")
+                        .HasForeignKey("OrdersId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Product");
+                    b.HasOne("Project.Core.Models.Product", null)
+                        .WithMany()
+                        .HasForeignKey("ProductsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Project.Core.Models.ProdactToOrder", b =>
+                {
+                    b.HasOne("Project.Core.Models.Order", "orderId")
+                        .WithMany()
+                        .HasForeignKey("orderIdId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Project.Core.Models.Product", "productId")
+                        .WithMany()
+                        .HasForeignKey("productIdId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("orderId");
+
+                    b.Navigation("productId");
                 });
 #pragma warning restore 612, 618
         }

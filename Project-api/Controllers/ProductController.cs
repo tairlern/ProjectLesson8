@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using Project.Core;
 using Project.Core.Models;
 using Project.Core.Services;
+using Project_api.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -11,10 +14,11 @@ namespace Project_api.Controllers
     public class ProductController : ControllerBase
     {
         private readonly IProductServices _products;
-
-        public ProductController(IProductServices ProductService)
+        private readonly IMapper _mapping;
+        public ProductController(IProductServices ProductService ,IMapper mapper)
         {
             _products = ProductService;
+            _mapping = mapper;
         }
         // GET: api/<ProductController>
         [HttpGet]
@@ -27,14 +31,17 @@ namespace Project_api.Controllers
         [HttpGet("{id}")]
         public Product Get(int id)
         {
-            return _products.Get(id);
+            var products = _products.Get(id);
+            var productDto=_mapping.Map<Product>(products);
+            return productDto;
         }
 
         // POST api/<ProductController>
         [HttpPost]
-        public void Post([FromBody] Product prod)
+        public ActionResult Post([FromBody] ProductPostModel prod)
         {
-            _products.Post(prod);
+            var product = new Product { Name = prod.Name, OrderId = prod.OrderId };
+            return Ok(_products.Post(product));
         }
 
         // PUT api/<ProductController>/5
@@ -48,6 +55,7 @@ namespace Project_api.Controllers
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
+            var prod=_products.Get(id); 
             _products.Delete(id);
             return NoContent();
         }

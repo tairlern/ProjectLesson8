@@ -1,4 +1,5 @@
-﻿using Project.Core.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Project.Core.Models;
 using Project.Core.Repositories;
 using System;
 using System.Collections.Generic;
@@ -16,10 +17,10 @@ namespace Project.Data
         {
             _context = context;
         }
-
+         
         public List<Order> GetList()
         {
-            return _context.OrderList.ToList();
+            return _context.OrderList.ToList(); 
         }
         public Order Get(int id)
         {
@@ -34,7 +35,7 @@ namespace Project.Data
         {
             var o=Get(id);
             o.Id = ordr.Id;
-           o.Product= ordr.Product;
+           //o.Product= ordr.Product;
             o.CountProdact = ordr.CountProdact;
            o.DateOrder = ordr.DateOrder;
             return ordr;

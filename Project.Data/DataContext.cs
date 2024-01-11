@@ -1,4 +1,5 @@
 ﻿
+
 using Microsoft.EntityFrameworkCore;
 using Project.Core.Models;
 using System;
@@ -15,10 +16,12 @@ namespace Project.Data
 
         public DbSet<Order> OrderList { get; set; }
         public DbSet<Product> ProductList { get; set; }
+        public DbSet<ProdactToOrder> ProdactToOrderList { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=DbProjectT_db");
+            optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=DbProjectT1_db");
+           
         }
     }
 }
