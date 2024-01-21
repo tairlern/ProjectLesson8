@@ -21,38 +21,38 @@ namespace Project_api.Controllers
 
         // GET: api/<CustomerController>
         [HttpGet]
-        public ActionResult Get(string? text = "")
+        public async Task<ActionResult> GetAsync(string? text = "")
         {
-            return Ok(_customers.GetAll(text));
+            return Ok(await _customers.GetAllAsync(text));
         }
 
         // GET api/<CustomerController>/5
         [HttpGet("{id}")]
-        public Customer Get(int id)
+        public async Task<Customer> GetAsync(int id)
         {
-            return _customers.Get(id);
+            return await _customers.GetAsync(id);
         }
 
         // POST api/<CustomerController>
         [HttpPost]
-        public void Post([FromBody] Customer cust)
+        public async Task PostAsync([FromBody] Customer cust)
         {
-            _customers.Post(cust);
+          await  _customers.PostAsync(cust);
         }
 
         // PUT api/<CustomerController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Customer cust)
+        public async Task PutAsync(int id, [FromBody] Customer cust)
         {
-            _customers.Put(id,cust);
+         await   _customers.PutAsync(id,cust);
 
         }
 
         // DELETE api/<CustomerController>/5
         [HttpDelete("{id}")]
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> DeleteAsync(int id)
         {
-            _customers.Delete( id);
+          await  _customers.DeleteAsync( id);
             return NoContent();
         }
     }

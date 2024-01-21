@@ -1,4 +1,5 @@
-﻿using Project.Core.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Project.Core.Models;
 using Project.Core.Repositories;
 using System;
 using System.Collections.Generic;
@@ -17,33 +18,35 @@ namespace Project.Data
             _context = context;
         }
 
-        public List<Customer> GetList()
+        public async Task<List<Customer>> GetListAsync()
         {
-            return _context.CustomerList.ToList();
+           // return await _context.ProductList.Include(p => p.Orders).ToListAsync();
+            return await  _context.CustomerList.Include(c=>c.Name).ToListAsync();
         }
-         public Customer Get(int id)
+         public async Task<Customer> GetAsync(int id)
         {
-            return _context.CustomerList.Find(id);
+            return await _context.CustomerList.FindAsync(id);
         }
-        public void Delete(int id)
+        public async Task DeleteAsync(int id)
         {
-            var c=Get(id);
+            var c=await GetAsync(id);
             _context.CustomerList.Remove(c);
-            _context.SaveChanges();
+          await  _context.SaveChangesAsync();
         }
 
-        public Customer Put(int id, Customer cust)
+        public async Task<Customer> PutAsync(int id, Customer cust)
         {
-            var c = Get(id);
+            var c =await GetAsync(id);
            c.Id = cust.Id;
             c .Name = cust.Name;
-            _context.SaveChanges();
+         await   _context.SaveChangesAsync();
             return c;
         }
-        public Customer Post(Customer cust)
+        public async Task< Customer> PostAsync(Customer cust)
         {
+
             _context.CustomerList.Add(cust);
-            _context.SaveChanges();
+          await  _context.SaveChangesAsync();
             return cust;
         }
        

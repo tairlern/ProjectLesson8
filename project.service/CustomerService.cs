@@ -18,29 +18,29 @@ namespace Project.Service
             _CustomerRepository = userRepository;
         }
 
-        public List<Customer> GetAll(string? text = "")
+        public async Task<List<Customer>> GetAllAsync(string? text = "")
         {
             //לוגיקה עסקית
-            return _CustomerRepository.GetList();
+            return await _CustomerRepository.GetListAsync();
         }
-        public Customer Get(int id)
+        public async Task<Customer> GetAsync(int id)
         {
-            return _CustomerRepository.Get(id);
+            return await _CustomerRepository.GetAsync(id);
         }
-        public void Delete(int id)
+        public async Task DeleteAsync(int id)
         {
-            _CustomerRepository.Delete(id);
+         await   _CustomerRepository.DeleteAsync(id);
            
         }
 
-        public Customer Put(int id, Customer cust)
+        public async Task<Customer> PutAsync(int id, Customer cust)
         {
-           return _CustomerRepository.Put(id, cust);
+           return await _CustomerRepository.PutAsync(id, cust);
             
         }
-        public Customer Post(Customer cust)
+        public async Task<Customer> PostAsync(Customer cust)
         {
-           return _CustomerRepository.Post(cust);
+           return await _CustomerRepository.PostAsync(cust);
            
         }
 
