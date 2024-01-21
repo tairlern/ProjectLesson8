@@ -18,32 +18,39 @@ namespace Project.Data
             _context = context;
         }
          
-        public List<Order> GetList()
+        public async Task< List<Order>> GetListAsync()
         {
-            return _context.OrderList.ToList(); 
+            
+            return await _context.OrderList.Include(u=>u.Products).ToListAsync(); 
         }
-        public Order Get(int id)
+        public async Task<Order> GetAsync(int id)
         {
-            return _context.OrderList.Find( id);
+            return await _context.OrderList.FindAsync( id);
         }
-        public void Delete(int id)
+        public async Task DeleteAsync(int id)
         {
-            var o=Get(id);
+           
+            var o=await GetAsync(id);
             _context.OrderList.Remove(o);
+            await _context.SaveChangesAsync();  
         }
-        public Order Put(int id, Order ordr)
+        public async Task<Order> PutAsync(int id, Order ordr)
         {
-            var o=Get(id);
+
+            var o=await GetAsync(id);
             o.Id = ordr.Id;
            //o.Product= ordr.Product;
             o.CountProdact = ordr.CountProdact;
            o.DateOrder = ordr.DateOrder;
-            return ordr;
+          await  _context.SaveChangesAsync();
+        //    await Task.WhenAll(o, _context);
+            return o;
         }
-        public Order Post(Order ordr)
+        public async Task<Order> PostAsync(Order ordr)
         {
-            _context.OrderList.Add(ordr);
-            return ordr;
+              _context.OrderList.Add(ordr);
+            await _context.SaveChangesAsync();
+           return ordr;
         }
     }
 }

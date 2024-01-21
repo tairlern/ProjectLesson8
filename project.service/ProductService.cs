@@ -19,23 +19,23 @@ namespace Project.Service
             _ProductRepository = userRepository;
         }
 
-        public List<Product> GetAll(string? text = "")
+        public async Task<List<Product>> GetAllAsync(string? text = "")
         {
            
-            return _ProductRepository.GetList().Where(u => u.Name.Contains(text)).ToList();
+            return await _ProductRepository.GetListAsync();
         }
-        public  Product Get(int id) {
+        public  async Task<Product> GetAsync(int id) {
 
-           return _ProductRepository.Get(id);
+           return await _ProductRepository.GetAsync(id);
         }
-        public  void Delete(int id) {
-            _ProductRepository.Delete(id);
+        public  async Task DeleteAsync(int id) {
+           await _ProductRepository.DeleteAsync(id);
         }
-        public  Product Put(int id, Product prod) {
-           return _ProductRepository.Put(id, prod);
+        public  async Task<Product> PutAsync(int id, Product prod) {
+           return await _ProductRepository.PutAsync(id, prod);
         }
-        public  Product Post(Product prod) {
-            return _ProductRepository.Post(prod); 
+        public  async Task<Product> PostAsync(Product prod) {
+            return await _ProductRepository.PostAsync(prod); 
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Project.Core;
+using Project.Core.DTOs;
 using Project.Core.Models;
 using Project.Core.Services;
 using Project_api.Models;
@@ -22,41 +23,41 @@ namespace Project_api.Controllers
         }
         // GET: api/<ProductController>
         [HttpGet]
-        public IEnumerable<Product> Get()
+        public async Task<IEnumerable<Product>> GetAsync()
         {
-            return _products.GetAll();
+            return await _products.GetAllAsync();
         }
 
         // GET api/<ProductController>/5
         [HttpGet("{id}")]
-        public Product Get(int id)
+        public async Task<ActionResult> GetAsync(int id)
         {
-            var products = _products.Get(id);
-            var productDto=_mapping.Map<Product>(products);
-            return productDto;
+            var products = await _products.GetAsync(id);
+            var productDto=_mapping.Map<ProductDto>(products);
+            return Ok(productDto);
         }
 
         // POST api/<ProductController>
         [HttpPost]
-        public ActionResult Post([FromBody] ProductPostModel prod)
+        public async Task<ActionResult> PostAsync([FromBody] ProductPostModel prod)
         {
             var product = new Product { Name = prod.Name, OrderId = prod.OrderId };
-            return Ok(_products.Post(product));
+            return Ok(await _products.PostAsync(product));
         }
 
         // PUT api/<ProductController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Product prod)
+        public async Task PutAsync(int id, [FromBody] Product prod)
         {
-            _products.Put(id, prod);    
+           await _products.PutAsync(id, prod);    
         }
 
         // DELETE api/<ProductController>/5
         [HttpDelete("{id}")]
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> DeleteAsync(int id)
         {
-            var prod=_products.Get(id); 
-            _products.Delete(id);
+            var prod=await _products.GetAsync(id); 
+          await  _products.DeleteAsync(id);
             return NoContent();
         }
     }

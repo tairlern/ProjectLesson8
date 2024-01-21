@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8m6S3DrgWdtQbvPa7skblnaxaXNg82PAHhDglG6qK4h67Mo3+DjWuoruQMEzjRZFQYXqF7ggZZQDOUmvYJJb5w==",
+  "dgSpecHash": "llTYQCCIHmbxWdpcOFGZAi6kste/Wf3amYjQ6Cffg6X3sRXizzsaJzgnr2Ax0ckqZQa5KgJROnFa0jVHUF/eBg==",
   "success": true,
-  "projectFilePath": "Y:\\Groups\\Group_3\\ניזרי  תאיר יהודית\\.NET core\\lesson12-EntitiesD\\Project\\Project-api\\Project.API.csproj",
+  "projectFilePath": "Y:\\Groups\\Group_3\\ניזרי  תאיר יהודית\\.NET core\\lesson13-Async\\Project\\Project-api\\Project.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hitmachut\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\hitmachut\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

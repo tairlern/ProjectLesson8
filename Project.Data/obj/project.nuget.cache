@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/jQkU7L0stlupd73WSid8vL10VAZvwit+YA0y/brbsrOQdHujUqOVZysGUZV3XSTfU+vbVmHUiuDGIv/xBC2Vg==",
+  "dgSpecHash": "eZIIg+lIuHyYDLam8T31OWaFoYoeaQYfWoQJw/2pQoWoVjlnP2KNeHLZJyguNF5beSHbHC1h/vVhAwVahKSkwQ==",
   "success": true,
-  "projectFilePath": "Y:\\Groups\\Group_3\\ניזרי  תאיר יהודית\\.NET core\\lesson12-EntitiesD\\Project\\Project.Data\\Project.Data.csproj",
+  "projectFilePath": "Y:\\Groups\\Group_3\\ניזרי  תאיר יהודית\\.NET core\\lesson13-Async\\Project\\Project.Data\\Project.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hitmachut\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\hitmachut\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

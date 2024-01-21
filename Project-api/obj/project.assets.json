@@ -2260,11 +2260,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "Y:\\Groups\\Group_3\\ניזרי  תאיר יהודית\\.NET core\\lesson12-EntitiesD\\Project\\Project-api\\Project.API.csproj",
+      "projectUniqueName": "Y:\\Groups\\Group_3\\ניזרי  תאיר יהודית\\.NET core\\lesson13-Async\\Project\\Project-api\\Project.API.csproj",
       "projectName": "Project.API",
-      "projectPath": "Y:\\Groups\\Group_3\\ניזרי  תאיר יהודית\\.NET core\\lesson12-EntitiesD\\Project\\Project-api\\Project.API.csproj",
+      "projectPath": "Y:\\Groups\\Group_3\\ניזרי  תאיר יהודית\\.NET core\\lesson13-Async\\Project\\Project-api\\Project.API.csproj",
       "packagesPath": "C:\\Users\\hitmachut\\.nuget\\packages\\",
-      "outputPath": "Y:\\Groups\\Group_3\\ניזרי  תאיר יהודית\\.NET core\\lesson12-EntitiesD\\Project\\Project-api\\obj\\",
+      "outputPath": "Y:\\Groups\\Group_3\\ניזרי  תאיר יהודית\\.NET core\\lesson13-Async\\Project\\Project-api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -2286,14 +2286,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "Y:\\Groups\\Group_3\\ניזרי  תאיר יהודית\\.NET core\\lesson12-EntitiesD\\Project\\project.Core\\Project.Core.csproj": {
-              "projectPath": "Y:\\Groups\\Group_3\\ניזרי  תאיר יהודית\\.NET core\\lesson12-EntitiesD\\Project\\project.Core\\Project.Core.csproj"
+            "Y:\\Groups\\Group_3\\ניזרי  תאיר יהודית\\.NET core\\lesson13-Async\\Project\\project.Core\\Project.Core.csproj": {
+              "projectPath": "Y:\\Groups\\Group_3\\ניזרי  תאיר יהודית\\.NET core\\lesson13-Async\\Project\\project.Core\\Project.Core.csproj"
             },
-            "Y:\\Groups\\Group_3\\ניזרי  תאיר יהודית\\.NET core\\lesson12-EntitiesD\\Project\\Project.Data\\Project.Data.csproj": {
-              "projectPath": "Y:\\Groups\\Group_3\\ניזרי  תאיר יהודית\\.NET core\\lesson12-EntitiesD\\Project\\Project.Data\\Project.Data.csproj"
+            "Y:\\Groups\\Group_3\\ניזרי  תאיר יהודית\\.NET core\\lesson13-Async\\Project\\Project.Data\\Project.Data.csproj": {
+              "projectPath": "Y:\\Groups\\Group_3\\ניזרי  תאיר יהודית\\.NET core\\lesson13-Async\\Project\\Project.Data\\Project.Data.csproj"
             },
-            "Y:\\Groups\\Group_3\\ניזרי  תאיר יהודית\\.NET core\\lesson12-EntitiesD\\Project\\project.service\\Project.Service.csproj": {
-              "projectPath": "Y:\\Groups\\Group_3\\ניזרי  תאיר יהודית\\.NET core\\lesson12-EntitiesD\\Project\\project.service\\Project.Service.csproj"
+            "Y:\\Groups\\Group_3\\ניזרי  תאיר יהודית\\.NET core\\lesson13-Async\\Project\\project.service\\Project.Service.csproj": {
+              "projectPath": "Y:\\Groups\\Group_3\\ניזרי  תאיר יהודית\\.NET core\\lesson13-Async\\Project\\project.service\\Project.Service.csproj"
             }
           }
         }

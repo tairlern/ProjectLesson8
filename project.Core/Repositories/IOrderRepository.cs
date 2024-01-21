@@ -9,10 +9,10 @@ namespace Project.Core.Repositories
 {
     public interface IOrderRepository
     {
-        List<Order> GetList();
-        Order Get(int id);
-        void Delete(int id);
-        Order Put(int id, Order cust);
-        Order Post(Order cust);
+        Task<List<Order>> GetListAsync();
+       Task< Order> GetAsync(int id);
+        Task DeleteAsync(int id);
+        Task<Order> PutAsync(int id, Order cust);
+        Task<Order> PostAsync(Order cust);
     }
 }

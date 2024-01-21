@@ -18,32 +18,33 @@ namespace Project.Data
             _context = context;
         }
 
-        public List<Product> GetList()
+        public async Task<List<Product>> GetListAsync()
         {
-            return _context.ProductList.Include(p=>p.Orders).ToList();
+            return await _context.ProductList.Include(p=>p.Orders).ToListAsync();
         }
-        public Product Get(int id)
+        public async Task<Product>GetAsync(int id)
         {
 
-            return _context.ProductList.ToList().Find(p => p.Id == id);
+            return await _context.ProductList.FindAsync(id);
         }
-        public void Delete(int id)
+        public async Task DeleteAsync(int id)
         {
-            var o = Get(id);
+            var o =await GetAsync(id);
             _context.ProductList.Remove(o);
-            //_context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
-        public Product Put(int id, Product prod)
+        public async Task<Product> PutAsync(int id, Product prod)
         {
-        var o=Get(id);
-           o.Id = prod.Id;
-           o.Name = prod.Name;
-            return prod;
+        var p= await GetAsync(id);
+           p.Id = prod.Id;
+           p.Name = prod.Name;
+            await _context.SaveChangesAsync();
+            return p;
         }
-        public Product Post(Product prod)
+        public async Task<Product> PostAsync(Product prod)
         {
             _context.ProductList.Add(prod);
-            //_context.SaveChanges();
+            await _context.SaveChangesAsync();
             return prod;
         }
     }

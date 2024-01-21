@@ -9,10 +9,12 @@ namespace Project.Core.Services
 {
     public interface IOrderServices
     {
-        List<Order> GetAll(string? text = "");
-        Order Get(int id);
-        void Delete(int id);
-        Order Put(int id, Order cust);
-        Order Post(Order cust);
+       Task< List<Order>> GetAllAsync(string? text = "");
+        Task<Order> GetAsync(int id);
+        Task DeleteAsync(int id);
+       Task< Order> PutAsync(int id, Order cust);
+        Task<Order> PostAsync(Order cust);
     }
 }
+
+     

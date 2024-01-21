@@ -18,26 +18,26 @@ namespace Project.Service
             _OrderRepository = userRepository;
         }
 
-        public List<Order> GetAll(string? text = "")
+        public async Task<List<Order>> GetAllAsync(string? text = "")
         {
             
-            return _OrderRepository.GetList().Where(u => u.Name.Contains(text)).ToList();
+            return await _OrderRepository.GetListAsync();
 
         }
-        public Order Get(int id)
+        public async Task<Order> GetAsync(int id)
         {
-            return _OrderRepository.Get(id);
+            return await _OrderRepository.GetAsync(id);
         }
-        public void Delete(int id)
+        public async Task DeleteAsync(int id)
         {
-                _OrderRepository.Delete(id);
+            await    _OrderRepository.DeleteAsync(id);
         }
-        public Order Put(int id, Order ordr) {
-           return _OrderRepository.Put(id, ordr);
+        public async Task< Order> PutAsync(int id, Order ordr) {
+           return await _OrderRepository.PutAsync(id, ordr);
         }
-        public Order Post(Order ordr)
+        public async Task<Order> PostAsync(Order ordr)
         {
-            return _OrderRepository.Post(ordr);
+            return await _OrderRepository.PostAsync(ordr);
         }
     }
 }

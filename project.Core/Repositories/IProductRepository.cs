@@ -9,10 +9,10 @@ namespace Project.Core.Repositories
 {
     public interface IProductRepository
     {
-        List<Product> GetList();
-        Product Get(int id);
-        void Delete(int id);
-        Product Put(int id, Product cust);
-        Product Post(Product cust);
+Task< List<Product>> GetListAsync();
+Task< Product> GetAsync(int id);
+Task DeleteAsync(int id);
+Task< Product> PutAsync(int id, Product cust);
+Task< Product> PostAsync(Product cust);
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+QqAYtoY+4AIAg24uxlw0tCogFCAIcj88Yv9yh2VheNeuG98melLVY6nUvp9yttqmJExzjNw+OZZxJRXToHHLA==",
+  "dgSpecHash": "x2OycECu/TomGtf0oBXCEyn3EpKcZ11wJfS30AJkI7MUYzQ/tWTuw4ChfMu/thiZ1bBzEPl49wN0ROm3DwT+eA==",
   "success": true,
-  "projectFilePath": "Y:\\Groups\\Group_3\\ניזרי  תאיר יהודית\\.NET core\\lesson12-EntitiesD\\Project\\project.Core\\Project.Core.csproj",
+  "projectFilePath": "Y:\\Groups\\Group_3\\ניזרי  תאיר יהודית\\.NET core\\lesson13-Async\\Project\\project.Core\\Project.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hitmachut\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\hitmachut\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
